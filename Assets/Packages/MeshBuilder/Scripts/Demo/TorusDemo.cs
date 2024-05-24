@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace MeshBuilder
 {
@@ -18,6 +19,13 @@ namespace MeshBuilder
         protected override void Build(MeshFilter filter)
         {
             filter.sharedMesh = TorusBuilder.Build(radius, thickness, radialSegments, thetaSegments, thetaStart, thetaEnd);
+
+            //AssetDatabase.CreateAsset(filter.sharedMesh, "Assets/torus.asset");
+        }
+        [ContextMenu("dump")]
+        void Dump()
+        {
+            AssetDatabase.CreateAsset(filter.sharedMesh, "Assets/torus.asset");
         }
 
     }

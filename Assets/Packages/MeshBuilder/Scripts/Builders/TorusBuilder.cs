@@ -62,7 +62,8 @@ namespace MeshBuilder
             mesh.SetVertices(vertices);
             mesh.SetNormals(normals);
             mesh.SetUVs(0, uvs);
-            mesh.SetIndices(indices, MeshTopology.Triangles, 0);
+            mesh.SetTriangles(indices, 0);
+            //mesh.SetIndices(indices, MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
             return mesh;
         }

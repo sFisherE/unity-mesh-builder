@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace MeshBuilder
@@ -13,7 +14,12 @@ namespace MeshBuilder
 
         protected override void Build(MeshFilter filter)
         {
-            filter.sharedMesh = RingBuilder.Build(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
+            filter.sharedMesh = RingBuilder.Build2(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
+        }
+        [ContextMenu("dump")]
+        void Dump()
+        {
+            AssetDatabase.CreateAsset(filter.sharedMesh, "Assets/ring.asset");
         }
     }
 

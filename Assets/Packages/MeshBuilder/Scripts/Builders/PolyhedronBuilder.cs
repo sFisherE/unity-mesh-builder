@@ -48,7 +48,8 @@ namespace MeshBuilder
 
             var mesh = new Mesh();
             mesh.SetVertices(vertices.Select(v => v * radius).ToList());
-            mesh.SetIndices(indices, MeshTopology.Triangles, 0);
+            mesh.SetTriangles(indices, 0);
+            //mesh.SetIndices(indices, MeshTopology.Triangles, 0);
             mesh.RecalculateNormals();
             mesh.RecalculateBounds();
 
